@@ -14,7 +14,16 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        _logger.LogTrace("Request to index successful");
+        _logger.LogTrace("Request to \"Index\" successful");
+
+        return View();
+    }
+
+    [HttpGet]
+    public IActionResult PickEntertainment()
+    {
+        _logger.LogTrace("Request to \"PickEntertainment\" successful");
+
         return View();
     }
 }

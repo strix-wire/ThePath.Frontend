@@ -15,9 +15,25 @@
     <link rel="stylesheet" href="~/css/slider.css?h=38a515b6b30123300b3619cce6411cec">
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+            <div class="container">
+                <a class="navbar-brand logo" asp-action="Index" asp-controller="Home">Path Tomsk</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                     id="navbarNav">
+                </div>
+            </div>
+        </nav>
+    </header>
     <div>
         @RenderBody()
     </div>
+    <footer class="page-footer">
+        <div class="container" style="border-style: none;">
+            <div class="links"><a href="#">Контакты</a><a href="#">Отблагодарить автора</a></div>
+            <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-instagram-outline"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a></div>
+        </div>
+    </footer>
     <script src="~/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
     <script src="~/bootstrap/js/bootstrap.min.js?h=0168f7c1e0d08faa2f4b13f4a1dc8c98"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>

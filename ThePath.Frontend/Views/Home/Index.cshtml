@@ -8,17 +8,6 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-        <div class="container">
-            <a class="navbar-brand logo" href="#">Path Tomsk</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                 id="navbarNav">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active" asp-action="index" asp-controller="Home">Главная</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <main class="page lanidng-page">
         <section class="portfolio-block block-intro" style="padding: 9px;">
             <div class="container">
@@ -44,7 +33,7 @@
             </div>
             <div class="container">
                 <div class="about-me">
-                    <p style="font-family: Montserrat, sans-serif;margin: 8px;">Чтобы сделать выбор - нажми кнопку ниже</p><a class="btn btn-outline-primary" role="button" href="#" style="width: 187px;font-size: 22px;"><strong>В путь!</strong></a>
+                    <p style="font-family: Montserrat, sans-serif;margin: 8px;">Чтобы сделать выбор - нажми кнопку ниже</p><a class="btn btn-outline-primary" role="button" asp-controller="Home" asp-action="PickEntertainment" style="width: 187px;font-size: 22px;"><strong>В путь!</strong></a>
                 </div>
             </div>
         </section>
@@ -58,12 +47,6 @@
             </div>
         </section>
     </main>
-    <footer class="page-footer">
-        <div class="container" style="border-style: none;">
-            <div class="links"><a href="#">Контакты</a><a href="#">Отблагодарить автора</a></div>
-            <div class="social-icons"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-instagram-outline"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a></div>
-        </div>
-    </footer>
 </body>
 
 </html>
