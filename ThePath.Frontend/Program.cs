@@ -12,8 +12,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 //Нужны ли?
-app.UseStaticFiles();
 app.UseRouting();
+app.UseStaticFiles();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
