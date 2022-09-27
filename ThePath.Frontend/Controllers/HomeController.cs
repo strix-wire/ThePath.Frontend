@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ThePath.Frontend.Models.Enum;
 
 namespace ThePath.Frontend.Controllers;
 
@@ -26,5 +27,12 @@ public class HomeController : Controller
 
         return View();
     }
+
+    [HttpGet]
+    public IActionResult SearchByFiltersEntertainment(TypeEntertainment typeEntertainment)
+    {
+        return View();
+    }
+
 }
 
