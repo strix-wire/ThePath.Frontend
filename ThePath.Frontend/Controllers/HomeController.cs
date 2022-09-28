@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ThePath.Frontend.Models.Classes;
 using ThePath.Frontend.Models.Enum;
 
 namespace ThePath.Frontend.Controllers;
@@ -34,5 +35,10 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult GetSearchLocation(GetSearchLocationDto getSearchLocationDto)
+    {
+        return View();
+    }
 }
 
