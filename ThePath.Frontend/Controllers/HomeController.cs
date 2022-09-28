@@ -29,7 +29,7 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult SearchByFiltersEntertainment(TypeEntertainment typeEntertainment)
+    public IActionResult PickPrice(TypeEntertainment typeEntertainment)
     {
         return View();
     }
