@@ -30,7 +30,7 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult PickPrice(TypeEntertainment typeEntertainment)
+    public IActionResult PickPrice(PickPriceDto pickPriceDto)
     {
         return View();
     }
