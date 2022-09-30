@@ -36,7 +36,7 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult GetSearchLocation(GetSearchLocationDto getSearchLocationDto)
+    public IActionResult PickArea(PickAreaDto PickAreaDto)
     {
         return View();
     }

@@ -2,7 +2,7 @@
 
 namespace ThePath.Frontend.Models.Classes
 {
-    public class GetSearchLocationDto
+    public class PickAreaDto
     {
         public СhoiceYesOrNo ChoiceYesOrNo { get; set; }
     }
