@@ -1,7 +1,11 @@
+using ThePath.Frontend.Services.Classes;
+using ThePath.Frontend.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 //Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<ISendMailToAurhorEmail, SendMailToAurhorEmail>();
 
 var app = builder.Build();
 

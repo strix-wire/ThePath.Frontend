@@ -1,4 +1,6 @@
-﻿<html lang="en">
+﻿@model ThePath.Frontend.Models.Classes.MailToAuthorEmail;
+
+<html lang="ru">
 <head>
 	<title>Contact Form 04</title>
 	<meta charset="utf-8">
@@ -23,30 +25,26 @@
 							<div class="col-md-6">
 								<div class="contact-wrap w-100 p-lg-5 p-4">
 									<h3 class="mb-4">Отправить сообщение</h3>
-									<div id="form-message-warning" class="mb-4"></div>
-									<div id="form-message-success" class="mb-4">
-										Your message was sent, thank you!
-									</div>
-									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+									<form asp-action="SuccessfullSendEmail"  class="contactForm">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" class="form-control" name="name" id="name" placeholder="Имя">
+													<input type="text" asp-for="Name" class="form-control" name="name" id="name" placeholder="Имя">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+													<input type="email" asp-for="Email" class="form-control" name="email" id="email" placeholder="Email">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" class="form-control" name="subject" id="subject" placeholder="Тема">
+													<input type="text" asp-for="Subject" class="form-control" name="subject" id="subject" placeholder="Тема">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<textarea name="message" class="form-control" id="message" cols="30" rows="6" placeholder="Текст"></textarea>
+													<textarea name="message" asp-for="Body" class="form-control" name="body" id="message" cols="30" rows="6" placeholder="Текст"></textarea>
 												</div>
 											</div>
 											<div class="col-md-12">

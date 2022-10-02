@@ -1,16 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ThePath.Frontend.Models.Classes;
 using ThePath.Frontend.Models.Enum;
+using ThePath.Frontend.Services.Interfaces;
 
 namespace ThePath.Frontend.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly ISendMailToAurhorEmail _sendMailToAurhorEmail;
+    public HomeController(ILogger<HomeController> logger, ISendMailToAurhorEmail sendMailToAurhorEmail)
     {
         _logger = logger;
+        _sendMailToAurhorEmail = sendMailToAurhorEmail;
     }
 
     [HttpGet]
@@ -44,6 +46,14 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult ContactWithAdmin()
     {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult SuccessfullSendEmail(MailToAuthorEmail mail)
+    {
+        Task<bool> result = _sendMailToAurhorEmail.SendAsync(mail);
+
         return View();
     }
 }
