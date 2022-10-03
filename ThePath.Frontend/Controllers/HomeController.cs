@@ -50,7 +50,7 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult SuccessfullSendEmail(MailToAuthorEmail mail)
+    public IActionResult SuccessfullSendEmail(MailToAuthorEmailDto mail)
     {
         Task<bool> result = _sendMailToAurhorEmail.SendAsync(mail);
 

@@ -1,4 +1,4 @@
-﻿@model ThePath.Frontend.Models.Classes.MailToAuthorEmail;
+﻿@model ThePath.Frontend.Models.Classes.MailToAuthorEmailDto;
 
 <html lang="ru">
 <head>
@@ -29,22 +29,22 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" asp-for="Name" class="form-control" name="name" id="name" placeholder="Имя">
+													<input type="text" asp-for="FromName" class="form-control" name="FromName" id="name" placeholder="Имя">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="email" asp-for="Email" class="form-control" name="email" id="email" placeholder="Email">
+													<input type="email" asp-for="FromAddress" class="form-control" name="FromAddress" id="email" placeholder="Email">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" asp-for="Subject" class="form-control" name="subject" id="subject" placeholder="Тема">
+													<input type="text" asp-for="Subject" class="form-control" name="Subject" id="subject" placeholder="Тема">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<textarea name="message" asp-for="Body" class="form-control" name="body" id="message" cols="30" rows="6" placeholder="Текст"></textarea>
+													<textarea name="message" asp-for="Body" class="form-control" name="Body" id="message" cols="30" rows="6" placeholder="Текст"></textarea>
 												</div>
 											</div>
 											<div class="col-md-12">

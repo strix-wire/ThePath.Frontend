@@ -10,14 +10,18 @@ namespace ThePath.Frontend.Services.Classes
     {
         private readonly HttpClient _httpClient;
         private readonly Uri _remoteServiceBaseUrl;
+        private readonly string _toName;
+        private readonly string _toAddress;
 
         public SendMailToAurhorEmail(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _remoteServiceBaseUrl = new Uri(configuration.GetValue<string>("ConnectionStrings:EmailService"));
+            _toName = configuration.GetValue<string>("EmailServiceVariable:ToName");
+            _toAddress = configuration.GetValue<string>("EmailServiceVariable:ToAddress");
         }
 
-        public async Task<bool> SendAsync(MailToAuthorEmail mailToAuthorEmail)
+        public async Task<bool> SendAsync(MailToAuthorEmailDto mailToAuthorEmail)
         {
             var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, _remoteServiceBaseUrl + "api/v1/Email");
             httpRequestMessage.Content = CreateBodyRequest(mailToAuthorEmail);
@@ -30,12 +34,12 @@ namespace ThePath.Frontend.Services.Classes
             return false;
         }
 
-        private StringContent CreateBodyRequest(MailToAuthorEmail mailToAuthorEmail)
+        private StringContent CreateBodyRequest(MailToAuthorEmailDto mailToAuthorEmail)
         {
+            mailToAuthorEmail.ToAddress = _toAddress;
+            mailToAuthorEmail.ToName = _toName;
             var body = JsonConvert.SerializeObject(mailToAuthorEmail);
-            var bodyReadyForRequest = "{\"Value\": \"" + body + "\"}";
-
-            var del = "{\"Value\":\"{\\\"FromName\\\":\\\"Vasily\\\",\\\"FromAddress\\\":\\\"vasily_pavlodsadasadsv_98@mail.ru\\\",\\\"ToName\\\":\\\"aAnd\\\",\\\"ToAddress\\\":\\\"strix.wire@gmail.com\\\",\\\"Subject\\\":\\\"ThePath\\\",\\\"Body\\\":\\\"текстпользователяИЗМЕНИТЬ\\\"}\"}";
+            var bodyReadyForRequest = JsonConvert.SerializeObject(new { Value = body });
 
             return new StringContent(bodyReadyForRequest, Encoding.UTF8, "application/json");
         }
