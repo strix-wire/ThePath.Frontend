@@ -1,4 +1,4 @@
-﻿using ThePath.Frontend.Models.Classes;
+﻿using ThePath.Frontend.Models.Classes.Dto;
 
 namespace ThePath.Frontend.Services.Interfaces
 {

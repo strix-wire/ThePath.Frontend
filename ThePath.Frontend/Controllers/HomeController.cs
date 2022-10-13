@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ThePath.Frontend.Models.Classes;
+using ThePath.Frontend.Models.Classes.Dto;
 using ThePath.Frontend.Models.Enum;
 using ThePath.Frontend.Services.Interfaces;
 

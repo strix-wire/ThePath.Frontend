@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System.Text;
-using ThePath.Frontend.Models.Classes;
+using ThePath.Frontend.Models.Classes.Dto;
 using ThePath.Frontend.Services.Interfaces;
 
 namespace ThePath.Frontend.Services.Classes

@@ -1,4 +1,4 @@
-﻿namespace ThePath.Frontend.Models.Classes
+﻿namespace ThePath.Frontend.Models.Classes.Dto
 {
     public class MailToAuthorEmailDto
     {

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Text;
-using ThePath.Frontend.Models.Classes;
+using ThePath.Frontend.Models.Classes.Dto;
 using ThePath.Frontend.Models.Classes.Vm;
 using ThePath.Frontend.Services.Interfaces;
 
