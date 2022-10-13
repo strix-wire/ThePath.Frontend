@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Text;
 using ThePath.Frontend.Models.Classes;
+using ThePath.Frontend.Models.Classes.Vm;
 using ThePath.Frontend.Services.Interfaces;
 
 namespace ThePath.Frontend.Services.Classes
@@ -16,20 +17,8 @@ namespace ThePath.Frontend.Services.Classes
             _remoteServiceBaseUrl = new Uri(configuration.GetValue<string>("ConnectionStrings:EntertainmentService"));
         }
 
+        //Need only to admin, moder
         public async Task<bool> CreateAsync(EntertainmentServiceCreateDto entertainmentServiceCreateDto)
-        {
-            var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, _remoteServiceBaseUrl + "api/v1/Entertainment/Create");
-            httpRequestMessage.Content = CreateBodyRequest(entertainmentServiceCreateDto);
-            HttpResponseMessage response = await _httpClient.SendAsync(httpRequestMessage);
-            if (response.IsSuccessStatusCode)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private StringContent CreateBodyRequest(EntertainmentServiceCreateDto entertainmentServiceCreateDto)
         {
             //----------------------------------------
             //ONLY MOCK YET
@@ -41,6 +30,57 @@ namespace ThePath.Frontend.Services.Classes
             entertainmentServiceCreateDto.Latitude = 56.4757818;
             entertainmentServiceCreateDto.Longitude = 85.085551;
             //----------------------------------------
+
+            var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, _remoteServiceBaseUrl + "/Create")
+            {
+                Content = CreateBodyRequest(entertainmentServiceCreateDto)
+            };
+            HttpResponseMessage response = await _httpClient.SendAsync(httpRequestMessage);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> GetEntertainmentAsync(EntertainmentServiceGetDto entertainmentServiceGetDto)
+        {
+            var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, _remoteServiceBaseUrl)
+            {
+                Content = CreateBodyRequest(entertainmentServiceGetDto)
+            };
+            HttpResponseMessage response = await _httpClient.SendAsync(httpRequestMessage);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<IList<EntertainmentServiceListByTypeAndAreaAndPriceVm>> GetEntertainmentListByTypeAndAreaAndPriceAsync
+            (EntertainmentServiceGetListByTypeAndAreaAndPriceDto dto)
+        {
+            var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, _remoteServiceBaseUrl)
+            {
+                Content = CreateBodyRequest(dto)
+            };
+            HttpResponseMessage response = await _httpClient.SendAsync(httpRequestMessage);
+            if (response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var vmJson = await response.Content.ReadAsStringAsync();
+
+            var vmModel = JsonConvert.DeserializeObject<IList<EntertainmentServiceListByTypeAndAreaAndPriceVm>>(vmJson);
+
+            return vmModel;
+        }
+
+        private StringContent CreateBodyRequest<T>(T entertainmentServiceCreateDto)
+        {
             var body = JsonConvert.SerializeObject(entertainmentServiceCreateDto);
             var bodyReadyForRequest = JsonConvert.SerializeObject(new { Value = body });
 

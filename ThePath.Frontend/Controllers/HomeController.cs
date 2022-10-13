@@ -49,10 +49,19 @@ public class HomeController : Controller
     [HttpGet]
     public async Task<IActionResult> SearchResultAsync(Area area)
     {
-        bool result = await _entertainmentService.CreateAsync(new EntertainmentServiceCreateDto());
+        bool result = await _entertainmentService.(new EntertainmentServiceCreateDto());
 
         return View();
     }
+
+    [HttpGet]
+    public async Task<IActionResult> EntertainmentDetails(Guid id)
+    {
+        bool result = await _entertainmentService.GetEntertainmentAsync(new EntertainmentServiceGetDto { Id = id });
+
+        return View();
+    }
+
 
     [HttpGet]
     public IActionResult ContactWithAdmin()
