@@ -9,3 +9,7 @@ Yes or No и другие фильтры хранить в Redis?
 Поиск ближайших мест от нужного местонахождения (по карте)
 СДЕЛАТЬ ПИК не по карте, а по району (квадраты)
 ПОСМОТРЕТЬ АНИМАЦИЮ фото в бустрапе
+
+Rename SendMailToAurhorEmail to EmailService
+
+Make to async await   Task<bool> result = _sendMailToAurhorEmail.SendAsync(mail);

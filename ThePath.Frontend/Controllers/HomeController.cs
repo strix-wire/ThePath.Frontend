@@ -9,8 +9,11 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly ISendMailToAurhorEmail _sendMailToAurhorEmail;
-    public HomeController(ILogger<HomeController> logger, ISendMailToAurhorEmail sendMailToAurhorEmail)
+    private readonly IEntertainmentService _entertainmentService;
+    public HomeController(ILogger<HomeController> logger, ISendMailToAurhorEmail sendMailToAurhorEmail,
+        IEntertainmentService entertainmentService)
     {
+        _entertainmentService = entertainmentService;
         _logger = logger;
         _sendMailToAurhorEmail = sendMailToAurhorEmail;
     }
@@ -40,6 +43,14 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult PickArea(PickAreaDto PickAreaDto)
     {
+        return View();
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> SearchResultAsync(Area area)
+    {
+        bool result = await _entertainmentService.CreateAsync(new EntertainmentServiceCreateDto());
+
         return View();
     }
 
