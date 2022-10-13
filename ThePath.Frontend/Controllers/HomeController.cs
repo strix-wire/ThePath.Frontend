@@ -24,9 +24,9 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult PickEntertainment()
+    public IActionResult PickTypeEntertainment()
     {
-        _logger.LogTrace("Request to \"PickEntertainment\" successful");
+        _logger.LogTrace("Request to \"PickTypeEntertainment\" successful");
 
         return View();
     }
