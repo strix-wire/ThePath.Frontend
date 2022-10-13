@@ -21,10 +21,10 @@ namespace ThePath.Frontend.Services.Classes
             _toAddress = configuration.GetValue<string>("EmailServiceVariable:ToAddress");
         }
 
-        public async Task<bool> SendAsync(MailToAuthorEmailDto mailToAuthorEmail)
+        public async Task<bool> SendAsync(MailToAuthorEmailDto mailToAuthorEmailDto)
         {
             var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, _remoteServiceBaseUrl + "api/v1/Email");
-            httpRequestMessage.Content = CreateBodyRequest(mailToAuthorEmail);
+            httpRequestMessage.Content = CreateBodyRequest(mailToAuthorEmailDto);
             HttpResponseMessage response = await _httpClient.SendAsync(httpRequestMessage);
             if (response.IsSuccessStatusCode)
             {
