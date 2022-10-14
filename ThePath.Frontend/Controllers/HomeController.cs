@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ThePath.Frontend.Models.Classes;
 using ThePath.Frontend.Models.Classes.Dto;
-using ThePath.Frontend.Models.Enum;
 using ThePath.Frontend.Services.Interfaces;
 
 namespace ThePath.Frontend.Controllers;
@@ -23,7 +21,6 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         _logger.LogTrace("Request to \"Index\" successful");
-
         return View();
     }
 
@@ -31,7 +28,6 @@ public class HomeController : Controller
     public IActionResult PickTypeEntertainment()
     {
         _logger.LogTrace("Request to \"PickTypeEntertainment\" successful");
-
         return View();
     }
 
@@ -47,22 +43,20 @@ public class HomeController : Controller
         return View();
     }
 
+    //[HttpGet]
+    //public async Task<IActionResult> EntertainmentDetails(Guid id)
+    //{
+    //    bool result = await _entertainmentService.GetEntertainmentAsync(new EntertainmentServiceGetDto { Id = id });
+
+    //    return View();
+    //}
+
     [HttpGet]
-    public async Task<IActionResult> SearchResultAsync(Area area)
+    public async Task<IActionResult> ResultListEntertainment(EntertainmentServiceGetListByTypeAndAreaAndPriceDto dto)
     {
-        bool result = await _entertainmentService.(new EntertainmentServiceCreateDto());
-
-        return View();
+        var res = await _entertainmentService.GetEntertainmentListByTypeAndAreaAndPriceAsync(dto);
+        return View(res);
     }
-
-    [HttpGet]
-    public async Task<IActionResult> EntertainmentDetails(Guid id)
-    {
-        bool result = await _entertainmentService.GetEntertainmentAsync(new EntertainmentServiceGetDto { Id = id });
-
-        return View();
-    }
-
 
     [HttpGet]
     public IActionResult ContactWithAdmin()
@@ -74,7 +68,6 @@ public class HomeController : Controller
     public IActionResult SuccessfullSendEmail(MailToAuthorEmailDto mail)
     {
         Task<bool> result = _sendMailToAurhorEmail.SendAsync(mail);
-
         return View();
     }
 }
