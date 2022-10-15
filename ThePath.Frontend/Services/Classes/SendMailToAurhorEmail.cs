@@ -23,25 +23,15 @@ namespace ThePath.Frontend.Services.Classes
 
         public async Task<bool> SendAsync(MailToAuthorEmailDto mailToAuthorEmailDto)
         {
-            var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, _remoteServiceBaseUrl + "api/v1/Email");
-            httpRequestMessage.Content = CreateBodyRequest(mailToAuthorEmailDto);
-            HttpResponseMessage response = await _httpClient.SendAsync(httpRequestMessage);
+            mailToAuthorEmailDto.ToAddress = _toAddress;
+            mailToAuthorEmailDto.ToName = _toName;
+
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync(_remoteServiceBaseUrl + "api/v1/Email",
+                mailToAuthorEmailDto);
             if (response.IsSuccessStatusCode)
-            {
                 return true;
-            }
 
             return false;
-        }
-
-        private StringContent CreateBodyRequest(MailToAuthorEmailDto mailToAuthorEmail)
-        {
-            mailToAuthorEmail.ToAddress = _toAddress;
-            mailToAuthorEmail.ToName = _toName;
-            var body = JsonConvert.SerializeObject(mailToAuthorEmail);
-            var bodyReadyForRequest = JsonConvert.SerializeObject(new { Value = body });
-
-            return new StringContent(bodyReadyForRequest, Encoding.UTF8, "application/json");
         }
     }
 }
