@@ -5,6 +5,7 @@ namespace ThePath.Frontend.Models.Classes.Vm;
 public class EntertainmentServiceListByTypeAndAreaAndPriceVm
 {
     public Guid Id { get; set; }
+    public string? UrlSite { get; set; }
     public string Name { get; set; }
     public long Price { get; set; }
     public string City { get; set; }
