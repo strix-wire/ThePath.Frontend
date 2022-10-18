@@ -38,9 +38,8 @@ public class HomeController : Controller
     {
         //call entertainmentService to get average price by entertainment
         
-
         PickPriceVm pickPriceVm = new();
-        pickPriceVm.Money = 300;
+        pickPriceVm.Price = 300;
         pickPriceVm.TypeEntertainment = pickPriceDto.TypeEntertainment;
 
         return View(pickPriceVm);
@@ -49,7 +48,7 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult PickArea(PickPriceVm pickPriceVm)
     {
-        return View();
+        return View(pickPriceVm);
     }
 
     //[HttpGet]
