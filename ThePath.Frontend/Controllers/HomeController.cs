@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ThePath.Frontend.Models.Classes;
 using ThePath.Frontend.Models.Classes.Dto;
+using ThePath.Frontend.Models.Classes.Vm;
 using ThePath.Frontend.Services.Interfaces;
 
 namespace ThePath.Frontend.Controllers;
@@ -34,11 +36,18 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult PickPrice(PickPriceDto pickPriceDto)
     {
-        return View();
+        //call entertainmentService to get average price by entertainment
+        
+
+        PickPriceVm pickPriceVm = new();
+        pickPriceVm.Money = 300;
+        pickPriceVm.TypeEntertainment = pickPriceDto.TypeEntertainment;
+
+        return View(pickPriceVm);
     }
 
     [HttpGet]
-    public IActionResult PickArea(PickAreaDto PickAreaDto)
+    public IActionResult PickArea(PickPriceVm pickPriceVm)
     {
         return View();
     }
