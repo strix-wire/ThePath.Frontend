@@ -61,7 +61,7 @@ namespace ThePath.Frontend.Services.Classes
             return false;
         }
 
-        public async Task<IList<EntertainmentServiceListByTypeAndAreaAndPriceVm>> GetEntertainmentListByTypeAndAreaAndPriceAsync
+        public async Task<IList<EntertainmentLookupDtoByTypeAndAreaAndPrice>> GetEntertainmentListByTypeAndAreaAndPriceAsync
             (EntertainmentServiceGetListByTypeAndAreaAndPriceDto dto)
         {
             var urlWithParameters = CreateUrlWithParameters("/GetEntertainmentListByTypeAndAreaAndPrice",
@@ -73,9 +73,9 @@ namespace ThePath.Frontend.Services.Classes
             }
 
             var vmJson = await response.Content.ReadAsStringAsync();
-            var vmModel = JsonConvert.DeserializeObject<IList<EntertainmentServiceListByTypeAndAreaAndPriceVm>>(vmJson);
+            var vmModel = JsonConvert.DeserializeObject<EntertainmentServiceListByTypeAndAreaAndPriceVm>(vmJson);
 
-            return vmModel;
+            return vmModel.EntertainmentsListByTypeAndAreaAndPriceVm;
         }
 
         /// <summary>
