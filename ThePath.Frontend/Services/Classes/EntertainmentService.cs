@@ -46,19 +46,20 @@ namespace ThePath.Frontend.Services.Classes
             return false;
         }
 
-        public async Task<bool> GetEntertainmentAsync(EntertainmentServiceGetDto entertainmentServiceGetDto)
+        public async Task<EntertainmentDetailsVm> GetEntertainmentAsync(EntertainmentServiceGetDto dto)
         {
-            //var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, _remoteServiceBaseUrl)
-            //{
-            //    Content = CreateBodyRequest(entertainmentServiceGetDto)
-            //};
-            //HttpResponseMessage response = await _httpClient.SendAsync(httpRequestMessage);
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    return true;
-            //}
+            var urlWithParameters = CreateUrlWithParameters("/DetailsEntertainment",
+                "Id", dto.Id.ToString());
+            HttpResponseMessage response = await _httpClient.GetAsync(urlWithParameters);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
 
-            return false;
+            var vmJson = await response.Content.ReadAsStringAsync();
+            var vmModel = JsonConvert.DeserializeObject<EntertainmentDetailsVm>(vmJson);
+
+            return vmModel;
         }
 
         public async Task<IList<EntertainmentLookupDtoByTypeAndAreaAndPrice>> GetEntertainmentListByTypeAndAreaAndPriceAsync

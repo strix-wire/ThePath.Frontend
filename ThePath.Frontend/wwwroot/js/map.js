@@ -23,9 +23,31 @@ let map = null
 //    map.on('click', onMapClick);
 //}
 
+function EntertainmantDetailsMap(latitude, longitude, name, size) {
+    if (map === null) {
+
+        map = L.map('map').setView([latitude.replace(',', '.'), longitude.replace(',', '.')], size)
+    } else {
+        console.log(latitude.replace(',','.'));
+        // перемещение к следующей позиции
+        map.flyTo([latitude.replace(',', '.'), longitude.replace(',', '.')], size)
+    }
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:
+            '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map)
+
+    // удаление предыдущего маркера
+    if (marker) {
+        map.removeLayer(marker)
+    }
+    marker = new L.Marker([latitude.replace(',', '.'), longitude.replace(',', '.')], size).addTo(map).bindPopup(name).openPopup()
+}
+
 function StartMap(entertainmentLookupDtoByTypeAndAreaAndPrice) {
     let count = entertainmentLookupDtoByTypeAndAreaAndPrice.length //id.length
-    console.log(entertainmentLookupDtoByTypeAndAreaAndPrice);
+    console.log(entertainmentLookupDtoByTypeAndAreaAndPrice)
     map = L.map('map').setView([parseFloat(entertainmentLookupDtoByTypeAndAreaAndPrice[0].latitude), parseFloat(entertainmentLookupDtoByTypeAndAreaAndPrice[0].longitude)], 11)
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

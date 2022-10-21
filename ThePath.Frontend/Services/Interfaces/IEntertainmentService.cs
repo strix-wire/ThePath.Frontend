@@ -7,7 +7,7 @@ namespace ThePath.Frontend.Services.Interfaces
     {
         //Need only to admin, moder
         //public Task<bool> CreateAsync(EntertainmentServiceCreateDto entertainmentServiceCreateDto);
-        //public Task<bool> GetEntertainmentAsync(EntertainmentServiceGetDto entertainmentServiceGetDto);
+        public Task<EntertainmentDetailsVm> GetEntertainmentAsync(EntertainmentServiceGetDto dto);
         public Task<IList<EntertainmentLookupDtoByTypeAndAreaAndPrice>> GetEntertainmentListByTypeAndAreaAndPriceAsync
             (EntertainmentServiceGetListByTypeAndAreaAndPriceDto dto);
     }

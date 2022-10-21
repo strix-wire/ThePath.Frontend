@@ -67,6 +67,13 @@ public class HomeController : Controller
     }
 
     [HttpGet]
+    public async Task<IActionResult> DetailsEntertainment(EntertainmentServiceGetDto dto)
+    {
+        var res = await _entertainmentService.GetEntertainmentAsync(dto);
+        return View();
+    }
+
+    [HttpGet]
     public IActionResult ContactWithAdmin()
     {
         return View();

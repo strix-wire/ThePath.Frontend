@@ -1,8 +1,9 @@
-﻿@using ThePath.Frontend.Models.Classes.Dto
+﻿@using Newtonsoft.Json
+@using ThePath.Frontend.Models.Classes.Dto
 @model IList<EntertainmentLookupDtoByTypeAndAreaAndPrice>;
 
 <head>
-    <title>GeoEvent</title>
+    <title>ThePath</title>
     <script src="~/js/map.js" charset="utf-8" type="text/javascript"></script>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
@@ -14,6 +15,14 @@
 </head>
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <p class="text-center" style="padding:;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери место из списка</p>
+        </div>
+        <div class="col-md-8">
+            <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери место на карте</p>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-4">
             @if (Model.Count == 0)
@@ -30,32 +39,31 @@
             }
             else
             {
-                <div style="overflow: auto; width:100%; height:650px;">
+                <div style="overflow: auto; width:100%; height:730px;">
                 @foreach(var i in Model)
                 {
-                    <div class="card">
-                        <div class="row no-gutters">
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <a>
-                                        @i.Name
-                                    </a>
+                    <form method="post" asp-controller="Home" asp-action="DetailsEntertainment">
+                            <div class="card" id="ss" onclick="EntertainmantDetailsMap('@i.Latitude', '@i.Longitude', '@i.Name' , 14)">
+                            <div class="row no-gutters">
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <a asp-controller="Home" asp-action="DetailsEntertainment" asp-route-Id="@i.Id">
+                                            @i.Name
+                                        </a>
+                                    </div>
                                 </div>
+                                    <div class="col-md-12"><img class="card-img" asp-controller="Home" asp-action="DetailsEntertainment" src="@Url.Content(i.UrlImage)"></div>
                             </div>
-                            <div class="col-md-12"><img class="card-img" src="@Url.Content(i.UrlImage)"></div>
                         </div>
-                    </div>
+                    </form>
                 }
                 </div>
             }
         </div>
         <div class="col-md-8">
-            <h1>
-                Развлечения :)
-            </h1>
             <style>
                 #map {
-                    height: 100vh;
+                    height: 80vh;
                 }
             </style>
             <div class="container">
