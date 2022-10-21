@@ -1,0 +1,47 @@
+﻿@using ThePath.Frontend.Models.Classes.Vm
+@model EntertainmentDetailsVm;
+<head>
+	<title>ThePath</title>
+	<script src="~/js/map.js" charset="utf-8" type="text/javascript"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA==" crossorigin=""></script>
+
+	<link rel="stylesheet" href="~/css/MarkerCluster.css" />
+	<link rel="stylesheet" href="~/css/MarkerCluster.Default.css" />
+	<script src="~/js/leaflet.markercluster-src.js"></script>
+</head>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">@Model.Name</p>
+			<div class="col-md-12">
+				<img class="card-img" asp-controller="Home" asp-action="DetailsEntertainment" src="@Url.Content(@Model.UrlImage)">
+			</div>
+			<p style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Средняя цена за посещение: @Model.Price</p>
+			<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">@Model.Details</p>
+			<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Найти на карте</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<style>
+				#map {
+					height: 75vh;
+				}
+			</style>
+			<div class="container">
+				<div id="map"></div>
+			</div>
+
+			<div>
+				<script>
+					var model = @Json.Serialize(new List<EntertainmentDetailsVm>(){ Model });
+					StartMap(model);
+				</script>
+			</div>
+		</div>
+	</div>
+</div>

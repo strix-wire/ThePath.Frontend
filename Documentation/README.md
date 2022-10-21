@@ -13,3 +13,8 @@ Yes or No и другие фильтры хранить в Redis?
 Rename SendMailToAurhorEmail to EmailService
 
 Make to async await   Task<bool> result = _sendMailToAurhorEmail.SendAsync(mail);
+
+@foreach не работает с jquery. перейти с разора на js
+Сделать доп фото для развлечений и показывать их в details page
+
+Вместо Списка использовать SortedSet?

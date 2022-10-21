@@ -70,7 +70,7 @@ public class HomeController : Controller
     public async Task<IActionResult> DetailsEntertainment(EntertainmentServiceGetDto dto)
     {
         var res = await _entertainmentService.GetEntertainmentAsync(dto);
-        return View();
+        return View(res);
     }
 
     [HttpGet]

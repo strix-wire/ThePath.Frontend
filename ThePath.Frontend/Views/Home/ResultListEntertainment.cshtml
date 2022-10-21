@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <p class="text-center" style="padding:;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери место из списка</p>
+            <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери место из списка</p>
         </div>
         <div class="col-md-8">
             <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери место на карте</p>
@@ -48,7 +48,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <a asp-controller="Home" asp-action="DetailsEntertainment" asp-route-Id="@i.Id">
-                                            @i.Name
+                                                <p class="text-center" style="font-family: Montserrat, sans-serif;font-size: 28px;">@i.Name</p>
                                         </a>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
         <div class="col-md-8">
             <style>
                 #map {
-                    height: 80vh;
+                    height: 75vh;
                 }
             </style>
             <div class="container">
