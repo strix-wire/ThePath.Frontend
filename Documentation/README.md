@@ -18,3 +18,4 @@ Make to async await   Task<bool> result = _sendMailToAurhorEmail.SendAsync(mail)
 Сделать доп фото для развлечений и показывать их в details page
 
 Вместо Списка использовать SortedSet?
+Поменять картинку не важно
