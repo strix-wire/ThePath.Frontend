@@ -69,11 +69,12 @@
             <div class="container">
                 <div id="map"></div>
             </div>
+            @Html.Hidden("RedirectTo", Url.Action("DetailsEntertainment", "Home")) @*РRedirect after touch popup*@
 
             <div>
                 <script>
                     var model = @Json.Serialize(Model);
-                    StartMap(model);
+                    StartMapAllList(model);
                 </script>
             </div>
         </div>
