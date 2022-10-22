@@ -66,7 +66,8 @@ namespace ThePath.Frontend.Services.Classes
             (EntertainmentServiceGetListByTypeAndAreaAndPriceDto dto)
         {
             var urlWithParameters = CreateUrlWithParameters("/GetEntertainmentListByTypeAndAreaAndPrice",
-                "Area", dto.Area.ToString(), "TypeEntertainment", dto.TypeEntertainment.ToString(), "Price", dto.Price.ToString());
+                "Area", dto.Area.ToString(), "TypeEntertainment", dto.TypeEntertainment.ToString(), "Price", dto.Price.ToString(),
+                "IntervalMoney", dto.IntervalMoney.ToString());
             HttpResponseMessage response = await _httpClient.GetAsync(urlWithParameters);
             if (!response.IsSuccessStatusCode)
             {
