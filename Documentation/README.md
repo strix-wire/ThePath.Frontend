@@ -19,3 +19,4 @@ Make to async await   Task<bool> result = _sendMailToAurhorEmail.SendAsync(mail)
 
 Вместо Списка использовать SortedSet?
 Поменять картинку не важно
+Переверстать page with connect developer
