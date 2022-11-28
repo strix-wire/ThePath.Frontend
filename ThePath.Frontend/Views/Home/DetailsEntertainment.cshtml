@@ -1,7 +1,7 @@
 ﻿@using ThePath.Frontend.Models.Classes.Vm;
 @model EntertainmentDetailsVm;
 @{
-	var basePathWwwroot = "C:\\ThePath\\ThePath.Frontend\\ThePath.Frontend\\wwwroot";
+	var basePathWwwroot = @"D:\Projects\Gith\ThePath.Frontend\ThePath.Frontend\wwwroot";
 }
 <head>
 	<title>ThePath</title>
@@ -28,14 +28,14 @@
 						string[] pathFiles = Directory.GetFiles(basePathWwwroot + @Url.Content(@Model.UrlImage).Replace(" ", ""));
 						var files = pathFiles.Select(x => x.Replace(basePathWwwroot, "")).ToArray();
 
-						<div class="carousel-item img-fluid active peopleCarouselImg">
-							<img class="d-block" src="@files[0]" alt="First slide">
-						</div>
+							<div class="carousel-item img-fluid active peopleCarouselImg">
+								<img class="d-block" src="@files[0]" alt="First slide">
+							</div>
 						for (int i = 1; i < pathFiles.Length; i++)
 						{
-							<div class="carousel-item img-fluid peopleCarouselImg">
-								<img class="square d-block" src="@files[i]">
-							</div>
+								<div class="carousel-item img-fluid peopleCarouselImg">
+									<img class="square d-block" src="@files[i]">
+								</div>
 						}
 					}
 				</div>
@@ -49,10 +49,19 @@
 				</a>
 			</div>
 		</div>
-
-		<p style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Средняя цена за посещение: @Model.Price</p>
-		<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">@Model.Details</p>
-		<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Найти на карте</p>
+		@if(Model.Price != 0)
+		{
+			<div class="col-md-12">
+				<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Средняя цена за посещение: @Model.Price</p>
+			</div>
+		}
+		<div class="col-md-12">
+			<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">@Model.Details</p>
+		</div>
+		<div class="col-md-12">
+			<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Найти на карте</p>
+		</div>
+		
 	</div>
 	<div class="row">
 		<div class="col-md-12">
