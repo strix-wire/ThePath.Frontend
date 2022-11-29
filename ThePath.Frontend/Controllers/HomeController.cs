@@ -36,11 +36,34 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult PickPrice(PickPriceDto pickPriceDto)
     {
-        //call entertainmentService to get average price by entertainment
-        
+        //TO DO REFACTORING ALL METHOD WARNING
+        //to (never) do kill temporally mock
+
+        bool isHavePrice = pickPriceDto.TypeEntertainment != Models.Enum.TypeEntertainment.Attraction
+            && pickPriceDto.TypeEntertainment != Models.Enum.TypeEntertainment.InterestingPlacesInTomsk
+            && pickPriceDto.TypeEntertainment != Models.Enum.TypeEntertainment.Cinema
+            && pickPriceDto.TypeEntertainment != Models.Enum.TypeEntertainment.EntertainmentForChildren
+            && pickPriceDto.TypeEntertainment != Models.Enum.TypeEntertainment.HorseRides;
+
         PickPriceVm pickPriceVm = new();
-        pickPriceVm.Price = 300;
         pickPriceVm.TypeEntertainment = pickPriceDto.TypeEntertainment;
+
+        if (isHavePrice == false)
+        {
+            pickPriceVm.IntervalMoney = Models.Enum.IntervalMoney.More;
+            pickPriceVm.Price = 0;
+
+            return RedirectToAction("PickArea", pickPriceVm);
+        }
+
+        if (pickPriceDto.TypeEntertainment == Models.Enum.TypeEntertainment.CafesAndRestaurants)
+            pickPriceVm.Price = 1000;
+
+        if (pickPriceDto.TypeEntertainment == Models.Enum.TypeEntertainment.RecreationCenters)
+            pickPriceVm.Price = 7000;
+
+        if (pickPriceDto.TypeEntertainment == Models.Enum.TypeEntertainment.Saunas)
+            pickPriceVm.Price = 1000;
 
         return View(pickPriceVm);
     }
