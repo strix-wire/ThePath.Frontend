@@ -47,7 +47,7 @@
                                 <div class="row no-gutters">
                                     <div class="card">
                                         <div class="col-md-12">
-                                            <img class="card-img" asp-controller="Home" asp-action="DetailsEntertainment" src="@Url.Content((i.UrlImage + "main.jpg").Replace(" ", ""))">
+                                            <img class="card-img peopleCarouselImg" asp-controller="Home" asp-action="DetailsEntertainment" src="@Url.Content((i.UrlImage + "main.jpg").Replace(" ", ""))">
                                             <div class="card-body text-center">
                                                 <p style="font-family: Montserrat, sans-serif;font-size: 28px;">@i.Name</p>
                                                 <a class="btnCard btn btn-outline-primary text-center" role="button" asp-controller="Home" asp-action="DetailsEntertainment" asp-route-Id="@i.Id" style="width: 187px;font-size: 22px;"><strong>Подробности</strong></a>
