@@ -57,6 +57,12 @@
 		<div class="col-md-12">
 			<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">@Model.Details</p>
 		</div>
+		@if (@Model.UrlSite != "")
+		{
+			<div class="col-md-12 text-center" style="margin-bottom: 50px">
+				<a class=" btn btn-outline-primary" role="button" href="@Model.UrlSite" style="width: 230px;font-size: 22px;"><strong>Перейти на сайт владельца</strong></a>
+			</div>
+		}
 		<div class="col-md-12">
 			<p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Найти на карте</p>
 		</div>
