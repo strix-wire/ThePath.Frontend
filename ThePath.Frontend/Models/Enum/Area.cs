@@ -2,9 +2,10 @@
 {
     public enum Area
     {
-        Soviet = 0,
-        Oktyabrsky = 1,
-        Leninsky = 2,
-        Kirovsky = 3
+        None = 0,
+        Soviet = 1,
+        Oktyabrsky = 2,
+        Leninsky = 3,
+        Kirovsky = 4
     }
 }
