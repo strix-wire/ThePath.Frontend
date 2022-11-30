@@ -108,5 +108,11 @@ public class HomeController : Controller
         Task<bool> result = _sendMailToAurhorEmail.SendAsync(mail);
         return View();
     }
+
+    [HttpGet]
+    public IActionResult Policy()
+    {
+        return View();
+    }
 }
 

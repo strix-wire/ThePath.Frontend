@@ -25,22 +25,28 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" asp-for="FromName" class="form-control" name="FromName" id="name" placeholder="Имя">
+													<input type="text" required asp-for="FromName" class="form-control" name="FromName" id="name" placeholder="Имя">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="email" asp-for="FromAddress" class="form-control" name="FromAddress" id="email" placeholder="Email">
+													<input type="email" required asp-for="FromAddress" class="form-control" name="FromAddress" id="email" placeholder="Email">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" asp-for="Subject" class="form-control" name="Subject" id="subject" placeholder="Тема">
+													<input type="text" required asp-for="Subject" class="form-control" name="Subject" id="subject" placeholder="Тема">
 												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<textarea name="message" asp-for="Body" class="form-control" name="Body" id="message" cols="30" rows="6" placeholder="Текст"></textarea>
+													<textarea name="message" required asp-for="Body" class="form-control" name="Body" id="message" cols="30" rows="6" placeholder="Текст"></textarea>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="checkbox" required class="form-check-input">
+													<label class="form-check-label" style="color:#FF1493" for="flexCheckDefault">Я принимаю условия <a asp-action="Policy">политики конфиденциальности</a></label>
 												</div>
 											</div>
 											<div class="col-md-12">
