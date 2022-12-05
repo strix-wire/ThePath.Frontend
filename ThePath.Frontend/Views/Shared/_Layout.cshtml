@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="~/css/slider.css?h=38a515b6b30123300b3619cce6411cec">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/Cookie.css">
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function (m, e, t, r, i, k, a) {
@@ -57,6 +58,27 @@
                 </a>
             </div>
         </div>
+        <div id="cookie_notification">
+            <p>Для улучшения работы сайта и его взаимодействия с пользователями мы используем файлы cookie. Продолжая работу с сайтом, Вы разрешаете использование cookie-файлов. Вы всегда можете отключить файлы cookie в настройках Вашего браузера.</p>
+            <button class="button cookie_accept">Принять</button>
+        </div>
+        <script>
+            function checkCookies() {
+                let cookieDate = localStorage.getItem('cookieDate');
+                let cookieNotification = document.getElementById('cookie_notification');
+                let cookieBtn = cookieNotification.querySelector('.cookie_accept');
+
+                if (!cookieDate || (+cookieDate + 31536000000) < Date.now()) {
+                    cookieNotification.classList.add('show');
+                }
+
+                cookieBtn.addEventListener('click', function () {
+                    localStorage.setItem('cookieDate', Date.now());
+                    cookieNotification.classList.remove('show');
+                })
+            }
+            checkCookies();
+        </script>
     </footer>
     <script src="~/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
     <script src="~/bootstrap/js/bootstrap.min.js?h=0168f7c1e0d08faa2f4b13f4a1dc8c98"></script>

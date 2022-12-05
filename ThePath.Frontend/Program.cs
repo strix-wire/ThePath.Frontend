@@ -16,7 +16,7 @@ if (!app.Environment.IsDevelopment())
     
 }
 
-//Нужны ли?
+app.UseHttpsRedirection();
 app.UseRouting();
 app.UseStaticFiles();
 app.UseEndpoints(endpoints =>
