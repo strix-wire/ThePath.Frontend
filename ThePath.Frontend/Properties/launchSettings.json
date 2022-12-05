@@ -1,13 +1,13 @@
-﻿{
+{
   "profiles": {
     "ThePath.Frontend": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://194.67.109.20:4000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://194.67.109.20:4000"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -15,6 +15,14 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:52030/",
+      "sslPort": 44319
     }
   }
 }
