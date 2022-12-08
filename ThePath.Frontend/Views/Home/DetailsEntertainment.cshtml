@@ -1,6 +1,9 @@
 ﻿@using ThePath.Frontend.Models.Classes.Vm;
 @model EntertainmentDetailsVm;
-
+@{
+	var basePathWwwroot = ViewBag.PathWwwRoot;
+	Console.WriteLine();//@"D:\Projects\Gith\ThePath.Frontend\ThePath.Frontend\wwwroot";
+}
 <head>
 	<title>Описание места Томска</title>
 	<meta name="description" content="Подробности выбранного типа развлечения в Томске">
@@ -23,21 +26,21 @@
 			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
 				<div class="carousel-inner">
 					@{
-						string[] pathFiles = Directory.GetFiles(@Url.Content(@Model.UrlImage).Replace(" ", ""));
-						
+						string[] pathFiles = Directory.GetFiles(basePathWwwroot + @Url.Content(@Model.UrlImage).Replace(" ", ""));
+						var files = pathFiles.Select(x => x.Replace(basePathWwwroot, "")).ToArray();
 
 							<div class="carousel-item img-fluid active peopleCarouselImg">
-							<img class="d-block" src="@pathFiles[0]" alt="First slide">
+								<img class="d-block" src="@files[0]" alt="First slide">
 							</div>
 						for (int i = 1; i < pathFiles.Length; i++)
 						{
 								<div class="carousel-item img-fluid peopleCarouselImg">
-									<img class="square d-block" src="@pathFiles[i]">
+									<img class="square d-block" src="@files[i]">
 								</div>
 						}
 					}
 				</div>
-				@if (pathFiles.Length > 1)
+				@if (files.Length>1)
 				{
 					<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
 						<span class="carousel-control-prev-icon" aria-hidden="true"></span>

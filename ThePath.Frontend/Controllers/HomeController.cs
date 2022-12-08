@@ -11,12 +11,14 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly ISendMailToAurhorEmail _sendMailToAurhorEmail;
     private readonly IEntertainmentService _entertainmentService;
+    private readonly IWebHostEnvironment _appEnvironment;
     public HomeController(ILogger<HomeController> logger, ISendMailToAurhorEmail sendMailToAurhorEmail,
-        IEntertainmentService entertainmentService)
+        IEntertainmentService entertainmentService, IWebHostEnvironment appEnvironment)
     {
         _entertainmentService = entertainmentService;
         _logger = logger;
         _sendMailToAurhorEmail = sendMailToAurhorEmail;
+        _appEnvironment = appEnvironment;
     }
 
     [HttpGet]
@@ -74,14 +76,6 @@ public class HomeController : Controller
         return View(pickPriceVm);
     }
 
-    //[HttpGet]
-    //public async Task<IActionResult> EntertainmentDetails(Guid id)
-    //{
-    //    bool result = await _entertainmentService.GetEntertainmentAsync(new EntertainmentServiceGetDto { Id = id });
-
-    //    return View();
-    //}
-
     [HttpGet]
     public async Task<IActionResult> ResultListEntertainment(EntertainmentServiceGetListByTypeAndAreaAndPriceDto dto)
     {
@@ -92,6 +86,7 @@ public class HomeController : Controller
     [HttpGet]
     public async Task<IActionResult> DetailsEntertainment(EntertainmentServiceGetDto dto)
     {
+        ViewBag.PathWwwRoot  = _appEnvironment.WebRootPath;
         var res = await _entertainmentService.GetEntertainmentAsync(dto);
         return View(res);
     }
