@@ -67,6 +67,9 @@ public class HomeController : Controller
         if (pickPriceDto.TypeEntertainment == Models.Enum.TypeEntertainment.Saunas)
             pickPriceVm.Price = 1000;
 
+        if (pickPriceDto.TypeEntertainment == Models.Enum.TypeEntertainment.Sport)
+            pickPriceVm.Price = 1000;
+
         return View(pickPriceVm);
     }
 
