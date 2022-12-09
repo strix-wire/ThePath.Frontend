@@ -2,10 +2,11 @@
 @using ThePath.Frontend.Models.Classes.Vm;
 @model PickPriceVm;
 
-<head>
-    <title>Выбор района Томска</title>
-    <meta name="description" content="Выбрать развлечение по району Томску">
-</head>
+@{
+    ViewData["Title"] = "Выбор района Томска";
+    ViewData["Description"] = "Выбрать развлечение по району Томску";
+    ViewData["Keywords"] = "Поиск по району Томска, районы Томска, район Томска, куда сходить в Советском округе Томска, куда сходить в Октябрьском округе Томска, куда сходить в Кировском округе Томска, куда сходить в Ленинском округе Томска";
+}
 <body>
     <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери район. Сначала будут показаны результаты из выбранного района</p>
     <section class="portfolio-block projects compact-grid py-2">
@@ -17,7 +18,7 @@
             </div>
             <div class="col-md-6 col-lg-4 item zoom-on-hover">
                 <a asp-controller="Home" asp-action="ResultListEntertainment" asp-route-Area=@Area.Oktyabrsky asp-route-TypeEntertainment=@Model.TypeEntertainment asp-route-Price=@Model.Price asp-route-IntervalMoney=@Model.IntervalMoney>
-                    <img class="img-fluid image" src="~/img/PickArea/Октябрский.jpg"><span class="description"><span class="description-heading">Октябрский район</span></span>
+                    <img class="img-fluid image" src="~/img/PickArea/Октябрьский.jpg"><span class="description"><span class="description-heading">Октябрский район</span></span>
                 </a>
             </div>
         </div>

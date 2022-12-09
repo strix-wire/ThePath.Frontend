@@ -2,16 +2,11 @@
 @using ThePath.Frontend.Models.Classes.Vm;
 @model PickPriceVm;
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Средняя цена за посещение места в Томске</title>
-    <meta name="description" content="Выбор диапазона цены посещения места в Томске">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Projects - Brand</title>
-</head>
-
+@{
+    ViewData["Title"] = "Средняя цена посещения";
+    ViewData["Description"] = "Выбор диапазона цены посещения места в Томске";
+    ViewData["Keywords"] = "Поиск по цене посещения мест Томска, куда сходить в Томске дешего, куда сходить в Томске дорого, куда сходить в Томске недорого";
+}
 <body>
     <main class="page projets-page">
         <div class="container">
@@ -43,4 +38,3 @@
         </div>
     </main>
 </body>
-</html>

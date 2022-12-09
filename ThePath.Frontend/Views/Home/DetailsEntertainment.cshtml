@@ -1,17 +1,16 @@
 ﻿@using ThePath.Frontend.Models.Classes.Vm;
 @model EntertainmentDetailsVm;
 @{
-	var basePathWwwroot = ViewBag.PathWwwRoot;
-	Console.WriteLine();//@"D:\Projects\Gith\ThePath.Frontend\ThePath.Frontend\wwwroot";
+	ViewData["Title"] = "Описание места Томска";
+	ViewData["Description"] = "Подробности выбранного типа развлечения в Томске";
+	ViewData["Keywords"] = "карта развлечений в Томске, место развлечений в Томске, куда сходить в Томске";
+	var basePathWwwroot = ViewBag.PathWwwRoot; //@"D:\Projects\Gith\ThePath.Frontend\ThePath.Frontend\wwwroot";
 }
 <head>
-	<title>Описание места Томска</title>
-	<meta name="description" content="Подробности выбранного типа развлечения в Томске">
 	<script src="~/js/map.js" charset="utf-8" type="text/javascript"></script>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA==" crossorigin=""></script>
-	<meta name="keywords" content="карта развлечений в Томске, место развлечений в Томске">
 	<link rel="stylesheet" href="~/css/DetailEntity.css">
 	<link rel="stylesheet" href="~/css/MarkerCluster.css" />
 	<link rel="stylesheet" href="~/css/MarkerCluster.Default.css" />
