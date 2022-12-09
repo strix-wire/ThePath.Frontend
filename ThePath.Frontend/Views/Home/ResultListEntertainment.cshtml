@@ -20,15 +20,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери место из списка</p>
-        </div>
-        <div class="col-md-8">
-            <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери место на карте</p>
+        <div class="col-12">
+            <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери место</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-6" style="margin-bottom: 20px;">
+            <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Из списка:</p>
             @if (Model.Count == 0)
             {
                 <div class="card">
@@ -43,7 +41,7 @@
             }
             else
             {
-                <div style="overflow: auto; width:100%; height:730px;">
+                        <div style="overflow: auto; width:85%; height:70vh;" class="mx-auto">
                     @foreach (var i in Model)
                     {
                         <form method="post" asp-controller="Home" asp-action="DetailsEntertainment">
@@ -73,10 +71,13 @@
                 </div>
             }
         </div>
-        <div class="col-md-8">
+        <div class="col-lg-8 col-md-6"  style="margin-bottom: 20px;">
+            <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">На карте:</p>
             <style>
                 #map {
-                    height: 75vh;
+                    overflow: auto;
+                    height: 70vh;
+                    width: 95%;
                 }
             </style>
             <div class="container">
@@ -92,7 +93,7 @@
             </div>
         </div>
     </div>
-    <div class="row no-gutters justify-content-center" style="margin: 8px;">
+    <div class="row no-gutters justify-content-center" style="margin-bottom: 20px;">
         <a class="btn btn-outline-primary" role="button" onclick="history.back()" style="width: 187px;font-size: 22px;"><strong>Вернуться назад</strong></a>
     </div>
 </div>
