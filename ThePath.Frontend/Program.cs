@@ -18,7 +18,14 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions()
+{
+    OnPrepareResponse = ctx =>
+    {
+        //cash on time 10 min
+        ctx.Context.Response.Headers.Add("Cache-Control", "public,max-age=600");
+    }
+});
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

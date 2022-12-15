@@ -1,9 +1,11 @@
 ﻿@using ThePath.Frontend.Models.Classes.Vm;
 @model EntertainmentDetailsVm;
 @{
-	ViewData["Title"] = "Описание места Томска";
-	ViewData["Description"] = "Подробности выбранного типа развлечения в Томске";
-	ViewData["Keywords"] = "карта развлечений в Томске, место развлечений в Томске, куда сходить в Томске";
+	ViewData["Title"] = Model.Name;
+	ViewData["Description"] = "Хочешь сходить в " + Model.Name + " в Томске?" +
+	" Почитай об этом месте на нашем сайте! Покажем фото, расположение на карте! А также ты сможешь найти другие развлечения в Томске!";
+	ViewData["Keywords"] = "карта развлечений в Томске, место развлечений в Томске, куда сходить в Томске, " + Model.Name + "," +
+	Model.Name + " Томск" + ", чем заняться в Томске, что делать в Томске";
 	var basePathWwwroot = ViewBag.PathWwwRoot; //@"D:\Projects\Gith\ThePath.Frontend\ThePath.Frontend\wwwroot";
 }
 <head>
