@@ -1,0 +1,10 @@
+﻿.card {
+    background: linear-gradient(90deg, rgba(126,112,245,1) 32%, rgba(20,158,255,1) 78%);
+    border: 1px solid #dd2476;
+    color: rgba(250, 250, 250, 0.8);
+}
+
+.btnCard {
+    color: azure;
+    border-color: azure;
+}

@@ -1,0 +1,49 @@
+﻿@using ThePath.Frontend.Models.Enum;
+@using ThePath.Frontend.Models.Classes.Vm;
+@model PickPriceVm;
+
+@{
+    ViewData["Title"] = "Поиск развлечений в Томске";
+    ViewData["Description"] = "Выбрать развлечение Томска по ближайшему району";
+    ViewData["Keywords"] = "Поиск по району Томска, районы Томска, район Томска, куда сходить в Советском округе Томска, куда сходить в Октябрьском округе Томска, куда сходить в Кировском округе Томска, куда сходить в Ленинском округе Томска, чем заняться в Томске, что делать в Томске";
+}
+<body>
+    <p class="text-center" style="padding: 5px;font-family: Montserrat, sans-serif;font-size: 28px;">Выбери район. Сначала будут показаны результаты из выбранного района</p>
+    <section class="portfolio-block projects compact-grid py-2">
+        <div class="row no-gutters justify-content-center">
+            <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                <a asp-controller="Home" asp-action="ResultListEntertainment" asp-route-Area=@Area.None asp-route-TypeEntertainment=@Model.TypeEntertainment asp-route-Price=@Model.Price asp-route-IntervalMoney=@Model.IntervalMoney>
+                    <img class="img-fluid image" src="~/img/NotDependencyByArea/NotDependencyByArea.jpg"><span class="description"><span class="description-heading">Не зависит от района</span></span>
+                </a>
+            </div>
+        </div>
+        <div class="row no-gutters justify-content-center">
+            <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                <a asp-controller="Home" asp-action="ResultListEntertainment" asp-route-Area=@Area.Soviet asp-route-TypeEntertainment=@Model.TypeEntertainment asp-route-Price=@Model.Price asp-route-IntervalMoney=@Model.IntervalMoney>
+                    <img class="img-fluid image" src="~/img/PickArea/Советский.jpg"><span class="description"><span class="description-heading">Советский район</span></span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                <a asp-controller="Home" asp-action="ResultListEntertainment" asp-route-Area=@Area.Oktyabrsky asp-route-TypeEntertainment=@Model.TypeEntertainment asp-route-Price=@Model.Price asp-route-IntervalMoney=@Model.IntervalMoney>
+                    <img class="img-fluid image" src="~/img/PickArea/Октябрский.jpg"><span class="description"><span class="description-heading">Октябрьский район</span></span>
+                </a>
+            </div>
+        </div>
+        <div class="row no-gutters justify-content-center">
+            <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                <a asp-controller="Home" asp-action="ResultListEntertainment" asp-route-Area=@Area.Leninsky asp-route-TypeEntertainment=@Model.TypeEntertainment asp-route-Price=@Model.Price asp-route-IntervalMoney=@Model.IntervalMoney>
+                    <img class="img-fluid image" src="~/img/PickArea/Ленинский.jpg"><span class="description"><span class="description-heading">Ленинский район</span></span>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                <a asp-controller="Home" asp-action="ResultListEntertainment" asp-route-Area=@Area.Kirovsky asp-route-TypeEntertainment=@Model.TypeEntertainment asp-route-Price=@Model.Price asp-route-IntervalMoney=@Model.IntervalMoney>
+                    <img class="img-fluid image" src="~/img/PickArea/Кировский.jpg"><span class="description"><span class="description-heading">Кировский район</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="row no-gutters justify-content-center" style="margin: 8px;">
+        <a class="btn btn-outline-primary" role="button" onclick="history.back()" style="width: 187px;font-size: 22px;"><strong>Вернуться назад</strong></a>
+    </div>
+</body>
+

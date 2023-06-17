@@ -1,0 +1,113 @@
+﻿@using ThePath.Frontend.Models.Classes.Dto;
+@model MailToAuthorEmailDto;
+
+@{
+    ViewData["Title"] = "Связаться с разработчиком";
+	ViewData["Description"] = "Отправить пожелания владельцу по разработке платформы для выбора развлечений в Томске";
+	ViewData["Keywords"] = "отправка пожеланий, поиск развлечений, мест Томска";
+}
+
+<html lang="ru">
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Связаться с разработчиком</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-10">
+					<div class="wrapper">
+						<div class="row no-gutters">
+							<div class="col-md-6">
+								<div class="contact-wrap w-100 p-lg-5 p-4">
+									<h3 class="mb-4">Отправить сообщение</h3>
+									<form asp-action="SuccessfullSendEmail"  class="contactForm">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="text" required asp-for="FromName" class="form-control" name="FromName" id="name" placeholder="Имя">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="email" required asp-for="FromAddress" class="form-control" name="FromAddress" id="email" placeholder="Email">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="text" required asp-for="Subject" class="form-control" name="Subject" id="subject" placeholder="Тема">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<textarea name="message" required asp-for="Body" class="form-control" name="Body" id="message" cols="30" rows="6" placeholder="Текст"></textarea>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="checkbox" required class="form-check-input">
+													<label class="form-check-label" style="color:#FF1493" for="flexCheckDefault">Я принимаю условия <a asp-action="Policy">политики конфиденциальности</a></label>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit" value="Отправить" class="btn btn-primary">
+													<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 d-flex align-items-stretch">
+								<div class="info-wrap w-100 p-lg-5 p-4 img">
+									<h3>Другие способы связи</h3>
+									<p class="mb-4">Открыт для любых предложений :)</p>
+									<div class="dbox w-100 d-flex align-items-start">
+										<div class="icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-map-marker"></span>
+										</div>
+										<div class="text pl-3">
+											<p><span>Адрес:</span> Россия, г. Томск</p>
+										</div>
+									</div>
+									<div class="dbox w-100 d-flex align-items-center">
+										<div class="icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-paper-plane"></span>
+										</div>
+										<div class="text pl-3">
+											<p><span>Email:</span> <a href="mailto:vasily_pavlov_98@mail.ru">vasily_pavlov_98@mail.ru</a></p>
+										</div>
+									</div>
+									<div class="dbox w-100 d-flex align-items-center">
+										<div class="icon d-flex align-items-center justify-content-center">
+											<span class="fa fa-github"></span>
+										</div>
+										<div class="text pl-3">
+											<p><span>GitHub:</span> <a href="https://github.com/strix-wire">github.com/strix-wire</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="~/js/jquery.min.js"></script>
+	<script src="~/js/popper.js"></script>
+	<script src="~/js/bootstrap.min.js"></script>
+	<script src="~/js/jquery.validate.min.js"></script>
+	<script src="~/js/main.js"></script>
+
+</body>
+</html>
+

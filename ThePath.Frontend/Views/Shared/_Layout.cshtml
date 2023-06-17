@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content=@ViewData["Description"] />
+    <title>@ViewData["Title"]</title>
+    <meta name="keywords" content=@ViewData["Keywords"] />
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css?h=1ef0762f6cffa01d5f965192c2c43513">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="~/fonts/ionicons.min.css?h=9db842b3dc3336737559eb4abc0f1b3d">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <link rel="stylesheet" href="~/css/slider.css?h=38a515b6b30123300b3619cce6411cec">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/Cookie.css">
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(91528066, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/91528066" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark fixed-top bg-white gradient">
+            <div class="container">
+                <a class="navbar-brand logo" asp-action="Index" asp-controller="Home">
+                    Path Tomsk
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div style="margin-top:80px">
+        @RenderBody()
+    </div>
+    <footer class="page-footer">
+        <div class="container" style="border-style: none;">
+            <div class="icon d-flex align-items-center justify-content-center">
+                <a href="https://vk.com/vasily_rulit"><span class="fa fa-vk"></span></a>
+            </div>
+            <div class="links">
+                <a asp-controller="Home" asp-action="ContactWithAdmin">
+                    Связаться с разработчиком
+                </a>
+            </div>
+        </div>
+        <div id="cookie_notification">
+            <p>Для улучшения работы сайта и его взаимодействия с пользователями мы используем файлы cookie. Продолжая работу с сайтом, Вы разрешаете использование cookie-файлов. Вы всегда можете отключить файлы cookie в настройках Вашего браузера.</p>
+            <button class="button cookie_accept">Принять</button>
+        </div>
+        <script>
+            function checkCookies() {
+                let cookieDate = localStorage.getItem('cookieDate');
+                let cookieNotification = document.getElementById('cookie_notification');
+                let cookieBtn = cookieNotification.querySelector('.cookie_accept');
+
+                if (!cookieDate || (+cookieDate + 31536000000) < Date.now()) {
+                    cookieNotification.classList.add('show');
+                }
+
+                cookieBtn.addEventListener('click', function () {
+                    localStorage.setItem('cookieDate', Date.now());
+                    cookieNotification.classList.remove('show');
+                })
+            }
+            checkCookies();
+        </script>
+    </footer>
+    <script src="~/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+    <script src="~/bootstrap/js/bootstrap.min.js?h=0168f7c1e0d08faa2f4b13f4a1dc8c98"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="~/js/slider.js?h=975b2635c9a06eae9f47d6cae8158a12"></script>
+    <script src="~/js/slider-1.js?h=417b03f5f0a4f9f27f8c248f532eb5af"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="~/js/theme.js?h=4e0250612cb0b1aba8835335a87f4f23"></script>
+</body>
+</html>

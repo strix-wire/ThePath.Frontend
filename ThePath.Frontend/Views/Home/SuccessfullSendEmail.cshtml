@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Результат отправки сообщения разработчику";
+    ViewData["Description"] = "Результат отправки пожелания владельцу по разработке платформы для выбора развлечений в Томске";
+    ViewData["Keywords"] = "отправка пожеланий";
+}
+<head>
+    <title>Результат отправки сообщения разработчику</title>
+    <meta name="description" content="Результат отправки пожелания владельцу по разработке платформы для выбора развлечений в Томске">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+    <meta name="keywords" content="отправка пожеланий">
+</head>
+<body>
+    <div class="container" style="padding: 220px;">
+        <div class="row justify-content-center">
+            <i class="checkmark text-primary" style="font-size: 100px;">✓</i>
+        </div>
+        <div class="row justify-content-center" style="padding-bottom: 50px;">
+            <h1 class="text-primary">
+                Сообщение успешно отправлено!
+            </h1>
+        </div>
+        <div class="row justify-content-center">
+            <a class="btn btn-outline-primary" role="button" asp-controller="Home" asp-action="Index" style="width: 320px;font-size: 22px;"><strong>Вернуться на главную</strong></a>
+        </div>
+    </div>
+</body>
+
